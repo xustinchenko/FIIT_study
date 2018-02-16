@@ -1,2 +1,0 @@
-# FIIT_study
-test
