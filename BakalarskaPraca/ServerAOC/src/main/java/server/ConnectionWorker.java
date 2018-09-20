@@ -3,6 +3,7 @@ package server;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 
 public class ConnectionWorker implements Runnable {
 
@@ -13,6 +14,11 @@ public class ConnectionWorker implements Runnable {
     public ConnectionWorker(Socket socket) {
         clientSocket = socket;
     }
+
+    int fromByteArrayToInt(byte[] bytes) {
+        return ByteBuffer.wrap(bytes).getInt();
+    }
+
     @Override
     public void run() {
         /* получаем входной поток */
@@ -32,6 +38,7 @@ public class ConnectionWorker implements Runnable {
                 int count = inputStream.read(buffer,0,buffer.length);
                 /* проверяем, какое количество байт к нам прийшло */
                 if (count > 0) {
+                    int numOfMassage = fromByteArrayToInt(buffer);
                     System.out.println(new String(buffer,0,count));
                 } else
                     /* если мы получили -1, значит прервался наш поток с данными  */
