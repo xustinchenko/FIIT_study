@@ -39,7 +39,7 @@ public class ConnectionWorker implements Runnable {
                 /* проверяем, какое количество байт к нам прийшло */
                 if (count > 0) {
                     int numOfMassage = fromByteArrayToInt(buffer);
-                    System.out.println(new String(buffer,0,count));
+                    System.out.println(numOfMassage);
                 } else
                     /* если мы получили -1, значит прервался наш поток с данными  */
                     if (count == -1 ) {
