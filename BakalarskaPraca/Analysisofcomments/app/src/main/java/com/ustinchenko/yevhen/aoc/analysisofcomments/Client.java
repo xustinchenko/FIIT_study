@@ -13,8 +13,8 @@ import java.util.LinkedList;
 public class Client {
 
     private static final String LOG_TAG = "myServerApp";
-    private String mServerName = "192.168.0.4";
-    private int mServerPort = 6789;
+    private String mServerName = "192.168.137.161";
+    private int mServerPort = 1111;
     private Socket mSocket = null;
 
 
